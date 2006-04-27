@@ -29,6 +29,7 @@ O_TARGET := platform.o
 export-objs			:= prep_setup.o ibm440gp.o ibm440gx.o
 
 obj-$(CONFIG_405GP)		+= ibm405gp.o
+obj-$(CONFIG_405GPR)		+= ibm405gpr.o
 obj-$(CONFIG_440GP)		+= ibm440gp.o
 obj-$(CONFIG_440GX)		+= ibm440gx.o
 
