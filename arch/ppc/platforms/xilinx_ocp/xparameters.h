@@ -20,3 +20,7 @@
 #if defined(CONFIG_MEMEC_2VPX)
 #include "xparameters_2vpx.h"
 #endif
+
+#if defined(CONFIG_JSE)
+#include "xparameters_jse.h"
+#endif

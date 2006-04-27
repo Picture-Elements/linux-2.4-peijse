@@ -66,6 +66,10 @@ do {						\
 #include <platforms/ep405.h>
 #endif
 
+#if defined(CONFIG_JSE)
+#include <platforms/jse.h>
+#endif
+
 #if defined(CONFIG_OAK)
 #include <platforms/oak.h>
 #endif

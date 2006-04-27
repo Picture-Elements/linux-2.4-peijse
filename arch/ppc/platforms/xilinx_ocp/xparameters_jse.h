@@ -1,0 +1,12 @@
+
+  /* The SystemACE chip is on CS1#, mapped here. */
+#define XPAR_SYSACE_0_BASEADDR 0xf0000000
+#define XPAR_SYSACE_0_HIGHADDR 0xf00001FF
+
+  /* On the JSE board, the SystemACE chip is wired to IRQ 29 */
+#define XPAR_INTC_0_SYSACE_0_VEC_ID 2
+
+#define XPAR_XSYSACE_NUM_INSTANCES 1
+#define XPAR_OPB_SYSACE_0_MEM_WIDTH 8
+#define XPAR_OPB_SYSACE_0_DEVICE_ID 0
+#define XPAR_OPB_SYSACE_0_BASEADDR XPAR_SYSACE_0_BASEADDR

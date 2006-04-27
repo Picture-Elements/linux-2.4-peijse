@@ -75,6 +75,7 @@ if [ "$CONFIG_40x" = "y" ]; then
 	 EP405/EP405PC	CONFIG_EP405 		\
 	 Redwood-5	CONFIG_REDWOOD_5 	\
 	 Redwood-6	CONFIG_REDWOOD_6 	\
+	 JSE		CONFIG_JSE		\	
 	 Oak		CONFIG_OAK		\
 	 Walnut		CONFIG_WALNUT"		Walnut
 
@@ -207,6 +208,11 @@ if [ "$CONFIG_4xx" = "y" ]; then
 
   if [ "$CONFIG_EP405" = "y" ]; then
     define_bool CONFIG_405GP y
+  fi
+
+  if [ "$CONFIG_JSE" = "y" ]; then
+    define_bool CONFIG_405GPR y
+    define_bool CONFIG_XILINX_OCP y
   fi
 
   if [ "$CONFIG_OAK" = "y" -o "$CONFIG_TIVO" = "y" ]; then
