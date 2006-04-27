@@ -41,6 +41,10 @@ dep_tristate 'Mylex DAC960/DAC1100 PCI RAID Controller support' CONFIG_BLK_DEV_D
 dep_tristate 'Micro Memory MM5415 Battery Backed RAM support (EXPERIMENTAL)' CONFIG_BLK_DEV_UMEM $CONFIG_PCI $CONFIG_EXPERIMENTAL
 dep_tristate 'Promise SATA SX8 support' CONFIG_BLK_DEV_SX8 $CONFIG_PCI
 
+if [ "$CONFIG_XILINX_OCP" = "y" ]; then
+   tristate 'Xilinx on-chip System ACE' CONFIG_XILINX_SYSACE
+fi
+
 tristate 'Loopback device support' CONFIG_BLK_DEV_LOOP
 dep_tristate 'Network block device support' CONFIG_BLK_DEV_NBD $CONFIG_NET
 

@@ -33,6 +33,9 @@ obj-$(CONFIG_405GPR)		+= ibm405gpr.o
 obj-$(CONFIG_440GP)		+= ibm440gp.o
 obj-$(CONFIG_440GX)		+= ibm440gx.o
 
+subdir-$(CONFIG_XILINX_OCP)     += xilinx_ocp
+obj-$(CONFIG_XILINX_OCP)        += xilinx_ocp/xilinx_ocp.o
+
 obj-$(CONFIG_CPCI405)		+= cpci405.o
 obj-$(CONFIG_EP405)		+= ep405.o
 obj-$(CONFIG_REDWOOD_5)		+= redwood5.o ibmstb4.o

@@ -35,4 +35,8 @@ obj-$(CONFIG_BLK_DEV_SX8)	+= sx8.o
 
 subdir-$(CONFIG_PARIDE) += paride
 
+mod-subdirs			+= xilinx_sysace
+subdir-$(CONFIG_XILINX_SYSACE)	+= xilinx_sysace
+obj-$(CONFIG_XILINX_SYSACE)	+= xilinx_sysace/xilinx_sysace.o
+
 include $(TOPDIR)/Rules.make
