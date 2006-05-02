@@ -391,7 +391,7 @@ XSysAce_WriteSector(u32 BaseAddress, u32 SectorId, u8 * BufferPtr)
 
 	/* Send a write command of one sector to the controller */
 	XSysAce_RegWrite16(BaseAddress + XSA_SCCR_OFFSET,
-			   XSA_SCCR_READDATA_MASK | 1);
+			   XSA_SCCR_WRITEDATA_MASK | 1);
 
 	/* Reset configuration controller (be sure to keep the lock) */
 	XSysAce_mOrControlReg(BaseAddress, XSA_CR_CFGRESET_MASK);
