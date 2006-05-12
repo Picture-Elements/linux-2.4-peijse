@@ -58,6 +58,9 @@
 #ifdef CONFIG_KMOD
 #include <linux/kmod.h>
 #endif
+#ifdef CONFIG_BIGPHYS_AREA
+#include <linux/bigphysarea.h>
+#endif
 
 extern void set_device_ro(kdev_t dev,int flag);
 
@@ -130,6 +133,12 @@ EXPORT_SYMBOL(highmem_start_page);
 EXPORT_SYMBOL(create_bounce);
 EXPORT_SYMBOL(kmap_prot);
 EXPORT_SYMBOL(kmap_pte);
+#endif
+#ifdef CONFIG_BIGPHYS_AREA
+EXPORT_SYMBOL(bigphysarea_alloc);
+EXPORT_SYMBOL(bigphysarea_free);
+EXPORT_SYMBOL(bigphysarea_alloc_pages);
+EXPORT_SYMBOL(bigphysarea_free_pages);
 #endif
 
 /* filesystem internal functions */

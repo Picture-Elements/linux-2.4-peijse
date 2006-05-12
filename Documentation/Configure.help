@@ -320,6 +320,14 @@ CONFIG_MATH_EMULATION
   If you are not sure, say Y; apart from resulting in a 66 KB bigger
   kernel, it won't hurt.
 
+Support for big physical area reservation
+CONFIG_BIGPHYS_AREA
+  Enables kernel support for reserving large areas of physical memory
+  at boot-time for use by certain device drivers (such as video
+  framegrabbers, etc.) which require it. To use this feature, boot
+  the kernel with the boot-time option 'bigphysarea=nnn' where
+  'nnn' is the number of pages (a page is usually 4K) to reserve.
+
 Timer and CPU usage LEDs
 CONFIG_LEDS
   If you say Y here, the LEDs on your machine will be used
