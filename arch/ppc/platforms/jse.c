@@ -102,11 +102,11 @@ board_setup_arch(void)
       if (ppc_md.find_end_of_memory)
 	    mem = (ppc_md.find_end_of_memory) ();
 
-      if (mem > 16*1024*1024)
-	    bp_pages = (mem - 16*1024*1024) / PAGE_SIZE;
+      if (mem > 24*1024*1024)
+	    bp_pages = (mem - 24*1024*1024) / PAGE_SIZE;
 
 	/* register_console(&jse_console); */
-      printk("Picture Elements JSE (C) 2004 Picture Elements, Inc.\n");
+      printk("Picture Elements JSE (C) 2004-2006 Picture Elements, Inc.\n");
       printk("Using bigphysarea=%lu\n", bp_pages);
 
       snprintf(bpa_buf, sizeof bpa_buf, " bigphysarea=%lu", bp_pages);
