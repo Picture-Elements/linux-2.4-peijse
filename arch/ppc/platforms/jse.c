@@ -98,6 +98,7 @@ board_setup_arch(void)
       unsigned long mem = 0;
       unsigned long bp_pages=0;
       char bpa_buf[56];
+      char*cp;
 
       if (ppc_md.find_end_of_memory)
 	    mem = (ppc_md.find_end_of_memory) ();
@@ -107,10 +108,15 @@ board_setup_arch(void)
 
 	/* register_console(&jse_console); */
       printk("Picture Elements JSE (C) 2004-2006 Picture Elements, Inc.\n");
-      printk("Using bigphysarea=%lu\n", bp_pages);
 
-      snprintf(bpa_buf, sizeof bpa_buf, " bigphysarea=%lu", bp_pages);
-      strcat(cmd_line,bpa_buf);
+	/* If there is no other bigphysarea= setting, then create our
+	   own automatic choice from the bp_pages value calculated
+	   above. */
+      if ((cp = strstr(cmd_line, "bigphysarea=")) == 0) {
+	    printk("Using bigphysarea=%lu\n", bp_pages);
+	    snprintf(bpa_buf, sizeof bpa_buf, " bigphysarea=%lu", bp_pages);
+	    strcat(cmd_line,bpa_buf);
+      }
 }
 
 void __init
