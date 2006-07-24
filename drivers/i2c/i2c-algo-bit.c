@@ -431,7 +431,7 @@ static inline int bit_doAddress(struct i2c_adapter *i2c_adap,
 	int ret;
 	if ( (flags & I2C_M_TEN)  ) { 
 		/* a ten bit address */
-		addr = 0xf0 | (( msg->addr >> 7) & 0x03);
+		addr = 0xa0 | (( msg->addr >> 7) & 0x03);
 		DEB2(printk(KERN_DEBUG "addr0: %d\n",addr));
 		/* try extended address code...*/
 		ret = try_address(i2c_adap, addr, retries);
