@@ -1345,7 +1345,7 @@ emac_probe(struct ocp_device *ocpdev)
 	ep->mii_phy_addr = i;
 	rc = mii_phy_probe(&ep->phy_mii, i);
 	if (rc) {
-	        printk(KERN_WARNING "emac%d: Failed to probe PHY type.\n", ocpdev->def->index);
+	        printk(KERN_WARNING "emac%d: Failed to probe PHY (0x%02x) type.\n", ocpdev->def->index, ep->mii_phy_addr);
 		rc = -ENODEV;
 		goto bail;
 	}
