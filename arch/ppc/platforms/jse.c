@@ -31,23 +31,38 @@ int ppc405_map_irq(struct pci_dev *dev, unsigned char idsel,
 		   unsigned char pin)
 {
 	/* These IRQ mappings for PCI devices are imposed by the
-	   physical layout of the board. */
+	   physical layout of the board. U-Boot assigns IRQ levels to
+	   the external IRQs.
+
+	   JSE NOTES:
+	   - The JP2X/JP2C FPGA is hardwired to IDSEL 11 and
+	     the interrupt is hardwired to the IRQ2 external
+	     interrupt.
+
+	   EJSE NOTES:
+	   - The BJE-BRIDGE part of the EJSE FPGA is its own PCI
+	     device that responds to IDSEL12. Like the host bridge in
+	     the JSE, this device is wired to IRQ3.
+
+	*/
       static char pci_irq_table[][4] = {
-	      /* IDSEL 6 - PCI slot 1      - EXT IRQ 0 */
+	      /* IDSEL 6 - PCI slot 1       - EXT IRQ 0 */
 	    {25, 25, 25, 25},
-	      /* IDSEL 7 - PCI slot 2      - EXT IRQ 1 */
+	      /* IDSEL 7 - PCI slot 2       - EXT IRQ 1 */
 	    {26, 26, 26, 26},
-	      /* IDSEL 8 - <unused>        - <none>    */
+	      /* IDSEL 8 - <unused>         - <none>    */
 	    { 0,  0,  0,  0},
 	      /* IDSEL 9  - <unused>        - <none>    */
 	    { 0,  0,  0,  0},
 	      /* IDSEL 10 - PCI host bridge - EXT IRQ 3 */
 	    {28, 28, 28, 28},
 	      /* IDSEL 11 - JP2C            - EXT IRQ 2 */
-	    {27, 27, 27, 27}
+	    {27, 27, 27, 27},
+	      /* IDSEL 12 - BJEB            - EXT IRQ 3 */
+	    {28, 28, 28, 28}
       };
 
-      const long min_idsel = 6, max_idsel = 11, irqs_per_slot = 4;
+      const long min_idsel = 6, max_idsel = 12, irqs_per_slot = 4;
       return PCI_IRQ_TABLE_LOOKUP;
 }
 
